@@ -18,7 +18,7 @@ The current data was generously provided by TAU Factor and new data is added by 
 
 **Important:** If you encounter any issues with this extension, please don't hesitate to reach out at our [contact page](https://arazim-project.com/contact-us) or via GitHub Issues. **The extension does not do anything without you clicking the buttons and choosing to do so.**
 
-To upload histograms from the IMS, browse to https://iims.tau.ac.il and you'll see these buttons:
+To upload histograms from the IMS, browse to https://ims.tau.ac.il/TalSSO/ and you'll see these buttons:
 
 <p align="center">
 <img width="772" alt="tau-refactor-extension" src="https://github.com/user-attachments/assets/7995403c-2121-436f-be76-82c7456211bc">

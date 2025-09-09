@@ -82,7 +82,7 @@ const handler = async (
   sender: chrome.runtime.MessageSender,
   sendResponse: (response?: any) => void
 ) => {
-  if (!sender.url?.startsWith("https://iims.tau.ac.il/")) {
+  if (!sender.url?.startsWith("https://ims.tau.ac.il/")) {
     return
   }
 

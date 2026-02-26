@@ -19,4 +19,12 @@ export default [
     },
     plugins: [commonjs(), typescript(), nodeResolve()],
   },
+  {
+    input: "src/mytau.ts",
+    output: {
+      file: "dist/mytau.js",
+      format: "cjs",
+    },
+    plugins: [commonjs(), typescript(), nodeResolve()],
+  },
 ]

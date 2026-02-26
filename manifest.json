@@ -13,17 +13,28 @@
     "service_worker": "dist/background.js",
     "type": "module"
   },
-  "host_permissions": ["https://ims.tau.ac.il/TalSSO/*"],
+  "host_permissions": [
+    "https://ims.tau.ac.il/TalSSO/*",
+    "https://my.tau.ac.il/TAU_Student/*"
+  ],
   "content_scripts": [
     {
       "matches": ["https://ims.tau.ac.il/TalSSO/*"],
       "js": ["dist/ims.js"],
       "all_frames": true,
       "run_at": "document_end"
+    },
+    {
+      "matches": ["https://my.tau.ac.il/TAU_Student/CourseGrades*"],
+      "js": ["dist/mytau.js"],
+      "run_at": "document_idle"
     }
   ],
   "externally_connectable": {
-    "matches": ["https://ims.tau.ac.il/TalSSO/*"]
+    "matches": [
+      "https://ims.tau.ac.il/TalSSO/*",
+      "https://my.tau.ac.il/TAU_Student/*"
+    ]
   },
   "permissions": ["storage", "unlimitedStorage"]
 }

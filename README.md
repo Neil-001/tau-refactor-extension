@@ -30,4 +30,4 @@ By clicking "הוסף" you will send the course's grade histogram! 😄
 
 - [x] Support semester pages on IMS
 - [x] Support year pages as well on IMS
-- [ ] Support the new MyTAU as well
+- [x] Support the new MyTAU as well

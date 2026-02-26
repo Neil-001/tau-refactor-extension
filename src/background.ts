@@ -46,7 +46,7 @@ const getData = async (semester: string) => {
 const addGrades = async (
   semester: string,
   courseId: string,
-  gradeInfos: Record<string, any[]>
+  gradeInfos: Record<string, any[]>,
 ) => {
   const data = await getData(semester)
   if (data[courseId]) {
@@ -80,14 +80,18 @@ let semester = ""
 const handler = async (
   request: any,
   sender: chrome.runtime.MessageSender,
-  sendResponse: (response?: any) => void
+  sendResponse: (response?: any) => void,
 ) => {
-  if (!sender.url?.startsWith("https://ims.tau.ac.il/")) {
+  if (
+    !sender.url?.startsWith("https://ims.tau.ac.il/") &&
+    !sender.url?.startsWith("https://my.tau.ac.il/")
+  ) {
     return
   }
 
   if (request.type === "addGrades") {
     await addGrades(request.semester, request.courseId, request.gradeInfos)
+    sendResponse({ success: true })
   } else if (request.type === "setShouldSendData") {
     shouldSendData = request.shouldSendData
     sendResponse()
@@ -124,7 +128,7 @@ const handler = async (
       result[`lastFetch-${request.semester}`] ?? new Date("2019")
     let data = result[`data-${request.semester}`]
     if (Date.now() - new Date(lastFetch).getTime() > 1000 * 60 * 60 * 24) {
-      console.log(`Data outdated fpr ${request.semester}, refreshing`)
+      console.log(`Data outdated for ${request.semester}, refreshing`)
       data = await getData(request.semester)
     }
     sendResponse({ [request.semester]: data })
@@ -154,7 +158,7 @@ const handler = async (
 
     if (
       !finished.some(
-        ([group, moed]) => group === request.group && moed === request.moed
+        ([group, moed]) => group === request.group && moed === request.moed,
       )
     ) {
       if (request.distribution) {

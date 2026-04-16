@@ -176,7 +176,7 @@ let scrapeState: "idle" | "loading" | "success" | "error" | "empty" = "idle"
 
 const syncButtonUI = (btn: HTMLButtonElement) => {
   btn.style.cssText =
-    "margin-top:12px;width:100%;padding:8px 16px;border:none;" +
+    "margin-top:12px;width:100%;padding:8px 16px;border:none;direction:rtl" +
     "color:white;cursor:pointer;" +
     "border-radius:10px;font-size:14px;font-weight:bold;"
 
